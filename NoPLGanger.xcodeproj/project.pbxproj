@@ -33,8 +33,8 @@
 /* Begin PBXFileReference section */
 		A2C1F8DC167D0E0A0040E027 /* EditorColors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EditorColors.plist; sourceTree = "<group>"; };
 		A2DE04C1167CF72100296706 /* NoPL.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = NoPL.icns; sourceTree = "<group>"; };
-		A2DE04C3167CF77100296706 /* libNoPLc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNoPLc.a; path = ../CompiledLibs/compiler/libNoPLc.a; sourceTree = "<group>"; };
-		A2DE04C5167CF78000296706 /* libNoPLRuntime.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNoPLRuntime.a; path = ../CompiledLibs/runtime/libNoPLRuntime.a; sourceTree = "<group>"; };
+		A2DE04C3167CF77100296706 /* libNoPLc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNoPLc.a; path = CompiledLibs/compiler/libNoPLc.a; sourceTree = "<group>"; };
+		A2DE04C5167CF78000296706 /* libNoPLRuntime.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNoPLRuntime.a; path = CompiledLibs/runtime/libNoPLRuntime.a; sourceTree = "<group>"; };
 		A2E831B0167CF4EC000F368C /* DataListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataListController.h; sourceTree = "<group>"; };
 		A2E831B1167CF4EC000F368C /* DataListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataListController.m; sourceTree = "<group>"; };
 		A2E831B3167CF4EC000F368C /* FileBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileBrowserController.h; sourceTree = "<group>"; };
@@ -382,11 +382,15 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NoPLGanger/NoPLGanger-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/CompiledLibs/runtime/include/",
+					"$(SRCROOT)/CompiledLibs/compiler/include/",
+				);
 				INFOPLIST_FILE = "NoPLGanger/NoPLGanger-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../CompiledLibs/compiler\"",
-					"\"$(SRCROOT)/../CompiledLibs/runtime\"",
+					"\"$(SRCROOT)/CompiledLibs/runtime\"",
+					"\"$(SRCROOT)/CompiledLibs/compiler\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -399,11 +403,15 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NoPLGanger/NoPLGanger-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/CompiledLibs/runtime/include/",
+					"$(SRCROOT)/CompiledLibs/compiler/include/",
+				);
 				INFOPLIST_FILE = "NoPLGanger/NoPLGanger-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../CompiledLibs/compiler\"",
-					"\"$(SRCROOT)/../CompiledLibs/runtime\"",
+					"\"$(SRCROOT)/CompiledLibs/runtime\"",
+					"\"$(SRCROOT)/CompiledLibs/compiler\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

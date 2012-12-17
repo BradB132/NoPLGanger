@@ -1,0 +1,3 @@
+[submodule "CompiledLibs"]
+	path = CompiledLibs
+	url = https://BradB132@github.com/BradB132/NoPL.git
