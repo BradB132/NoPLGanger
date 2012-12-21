@@ -7,7 +7,7 @@
 //
 
 #import "PlistScriptData.h"
-#import "NSDictionary+NSDictionary_NoPL.h"
+#import "NSDictionary+NoPL.h"
 
 @implementation PlistScriptData
 

@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 Brad Bambara. All rights reserved.
 //
 
-#import "NSArray+NSArray_NoPL.h"
+#import "NSArray+NoPL.h"
 #import "DataManager.h"
 
-@implementation NSArray (NSArray_NoPL)
+@implementation NSArray (NoPL)
 
 -(NoPL_FunctionValue)callFunction:(void*)calledOnObject functionName:(NSString*)name args:(const NoPL_FunctionValue*)args argCount:(unsigned int)count
 {

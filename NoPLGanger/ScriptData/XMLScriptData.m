@@ -7,6 +7,8 @@
 //
 
 #import "XMLScriptData.h"
+#import "NSXMLNode+NoPL.h"
+#import "DataManager.h"
 
 @implementation XMLScriptData
 
@@ -19,23 +21,30 @@
 	if(self)
 	{
 		originalPath = path;
+		xmlDoc = [[NSXMLDocument alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] options:NSXMLNodePreserveCDATA error:nil];
 	}
 	return self;
 }
 
-
 -(NoPL_FunctionValue)callFunction:(void*)calledOnObject functionName:(NSString*)name args:(const NoPL_FunctionValue*)args argCount:(unsigned int)count
 {
-	NoPL_FunctionValue returnVal = NoPL_FunctionValue();
-	
-	return returnVal;
+	//forward this call
+	if(!calledOnObject || calledOnObject == (__bridge void *)([xmlDoc rootElement]))
+	{
+		if([name isEqualToString:[[xmlDoc rootElement] name]])
+		{
+			return [DataManager objectToFunctionValue:[xmlDoc rootElement]];
+		}
+	}
+	return NoPL_FunctionValue();
 }
 
 -(NoPL_FunctionValue)getSubscript:(void*)calledOnObject index:(NoPL_FunctionValue)index
 {
-	NoPL_FunctionValue returnVal = NoPL_FunctionValue();
-	
-	return returnVal;
+	//forward this call
+	if(!calledOnObject || calledOnObject == (__bridge void *)([xmlDoc rootElement]))
+		return [[xmlDoc rootElement] getSubscript:calledOnObject index:index];
+	return NoPL_FunctionValue();
 }
 
 @end

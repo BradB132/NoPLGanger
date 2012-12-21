@@ -12,7 +12,7 @@
 
 @interface XMLScriptData : ScriptData <DataContainer>
 {
-	//TODO: xml data
+	NSXMLDocument* xmlDoc;
 }
 
 -(id)initWithPath:(NSString*)path;

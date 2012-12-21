@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9BBBA0A71683E9C1006E1FA0 /* NSArray+NoPL.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA0A41683E9C1006E1FA0 /* NSArray+NoPL.m */; };
+		9BBBA0A81683E9C1006E1FA0 /* NSDictionary+NoPL.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA0A61683E9C1006E1FA0 /* NSDictionary+NoPL.m */; };
+		9BBBA0AF1683EE19006E1FA0 /* NSXMLNode+NoPL.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA0AE1683EE19006E1FA0 /* NSXMLNode+NoPL.m */; };
+		9BBBA0B2168407EE006E1FA0 /* NSXMLElement+NoPL.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA0B1168407EE006E1FA0 /* NSXMLElement+NoPL.m */; };
 		A2C1F8DD167D0E0A0040E027 /* EditorColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2C1F8DC167D0E0A0040E027 /* EditorColors.plist */; };
 		A2DE04C2167CF72100296706 /* NoPL.icns in Resources */ = {isa = PBXBuildFile; fileRef = A2DE04C1167CF72100296706 /* NoPL.icns */; };
 		A2DE04C4167CF77100296706 /* libNoPLc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2DE04C3167CF77100296706 /* libNoPLc.a */; };
@@ -16,8 +20,6 @@
 		A2E831CB167CF4EC000F368C /* FileSystemNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E831B6167CF4EC000F368C /* FileSystemNode.m */; };
 		A2E831CC167CF4EC000F368C /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E831B9167CF4EC000F368C /* DataManager.m */; };
 		A2E831CD167CF4EC000F368C /* NoPLScriptData.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E831BB167CF4EC000F368C /* NoPLScriptData.m */; };
-		A2E831CE167CF4EC000F368C /* NSArray+NSArray_NoPL.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E831BD167CF4EC000F368C /* NSArray+NSArray_NoPL.m */; };
-		A2E831CF167CF4EC000F368C /* NSDictionary+NSDictionary_NoPL.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E831BF167CF4EC000F368C /* NSDictionary+NSDictionary_NoPL.m */; };
 		A2E831D0167CF4EC000F368C /* PlistScriptData.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E831C1167CF4EC000F368C /* PlistScriptData.m */; };
 		A2E831D1167CF4EC000F368C /* ScriptData.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E831C3167CF4EC000F368C /* ScriptData.m */; };
 		A2E831D2167CF4EC000F368C /* XMLScriptData.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E831C5167CF4EC000F368C /* XMLScriptData.m */; };
@@ -31,6 +33,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9BBBA0A31683E9C1006E1FA0 /* NSArray+NoPL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NoPL.h"; sourceTree = "<group>"; };
+		9BBBA0A41683E9C1006E1FA0 /* NSArray+NoPL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NoPL.m"; sourceTree = "<group>"; };
+		9BBBA0A51683E9C1006E1FA0 /* NSDictionary+NoPL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NoPL.h"; sourceTree = "<group>"; };
+		9BBBA0A61683E9C1006E1FA0 /* NSDictionary+NoPL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NoPL.m"; sourceTree = "<group>"; };
+		9BBBA0AD1683EE19006E1FA0 /* NSXMLNode+NoPL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSXMLNode+NoPL.h"; sourceTree = "<group>"; };
+		9BBBA0AE1683EE19006E1FA0 /* NSXMLNode+NoPL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSXMLNode+NoPL.m"; sourceTree = "<group>"; };
+		9BBBA0B0168407EE006E1FA0 /* NSXMLElement+NoPL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSXMLElement+NoPL.h"; sourceTree = "<group>"; };
+		9BBBA0B1168407EE006E1FA0 /* NSXMLElement+NoPL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSXMLElement+NoPL.m"; sourceTree = "<group>"; };
 		A2C1F8DC167D0E0A0040E027 /* EditorColors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EditorColors.plist; sourceTree = "<group>"; };
 		A2DE04C1167CF72100296706 /* NoPL.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = NoPL.icns; sourceTree = "<group>"; };
 		A2DE04C3167CF77100296706 /* libNoPLc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNoPLc.a; path = NoPL_repo/CompiledLibs/compiler/libNoPLc.a; sourceTree = "<group>"; };
@@ -45,10 +55,6 @@
 		A2E831B9167CF4EC000F368C /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		A2E831BA167CF4EC000F368C /* NoPLScriptData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoPLScriptData.h; sourceTree = "<group>"; };
 		A2E831BB167CF4EC000F368C /* NoPLScriptData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoPLScriptData.m; sourceTree = "<group>"; };
-		A2E831BC167CF4EC000F368C /* NSArray+NSArray_NoPL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NSArray_NoPL.h"; sourceTree = "<group>"; };
-		A2E831BD167CF4EC000F368C /* NSArray+NSArray_NoPL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NSArray_NoPL.m"; sourceTree = "<group>"; };
-		A2E831BE167CF4EC000F368C /* NSDictionary+NSDictionary_NoPL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NSDictionary_NoPL.h"; sourceTree = "<group>"; };
-		A2E831BF167CF4EC000F368C /* NSDictionary+NSDictionary_NoPL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NSDictionary_NoPL.m"; sourceTree = "<group>"; };
 		A2E831C0167CF4EC000F368C /* PlistScriptData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistScriptData.h; sourceTree = "<group>"; };
 		A2E831C1167CF4EC000F368C /* PlistScriptData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistScriptData.m; sourceTree = "<group>"; };
 		A2E831C2167CF4EC000F368C /* ScriptData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptData.h; sourceTree = "<group>"; };
@@ -86,6 +92,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9BBBA0A21683E9C1006E1FA0 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				9BBBA0A31683E9C1006E1FA0 /* NSArray+NoPL.h */,
+				9BBBA0A41683E9C1006E1FA0 /* NSArray+NoPL.m */,
+				9BBBA0A51683E9C1006E1FA0 /* NSDictionary+NoPL.h */,
+				9BBBA0A61683E9C1006E1FA0 /* NSDictionary+NoPL.m */,
+				9BBBA0AD1683EE19006E1FA0 /* NSXMLNode+NoPL.h */,
+				9BBBA0AE1683EE19006E1FA0 /* NSXMLNode+NoPL.m */,
+				9BBBA0B0168407EE006E1FA0 /* NSXMLElement+NoPL.h */,
+				9BBBA0B1168407EE006E1FA0 /* NSXMLElement+NoPL.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		A2E831AF167CF4EC000F368C /* DataList */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,10 +134,6 @@
 				A2E831B9167CF4EC000F368C /* DataManager.m */,
 				A2E831BA167CF4EC000F368C /* NoPLScriptData.h */,
 				A2E831BB167CF4EC000F368C /* NoPLScriptData.m */,
-				A2E831BC167CF4EC000F368C /* NSArray+NSArray_NoPL.h */,
-				A2E831BD167CF4EC000F368C /* NSArray+NSArray_NoPL.m */,
-				A2E831BE167CF4EC000F368C /* NSDictionary+NSDictionary_NoPL.h */,
-				A2E831BF167CF4EC000F368C /* NSDictionary+NSDictionary_NoPL.m */,
 				A2E831C0167CF4EC000F368C /* PlistScriptData.h */,
 				A2E831C1167CF4EC000F368C /* PlistScriptData.m */,
 				A2E831C2167CF4EC000F368C /* ScriptData.h */,
@@ -178,6 +195,7 @@
 		A2FF5B9E167CE5BD00E38B40 /* NoPLGanger */ = {
 			isa = PBXGroup;
 			children = (
+				9BBBA0A21683E9C1006E1FA0 /* Categories */,
 				A2FF5BAA167CE5BD00E38B40 /* AppDelegate.h */,
 				A2FF5BAB167CE5BD00E38B40 /* AppDelegate.m */,
 				A2E831AF167CF4EC000F368C /* DataList */,
@@ -276,12 +294,14 @@
 				A2E831CB167CF4EC000F368C /* FileSystemNode.m in Sources */,
 				A2E831CC167CF4EC000F368C /* DataManager.m in Sources */,
 				A2E831CD167CF4EC000F368C /* NoPLScriptData.m in Sources */,
-				A2E831CE167CF4EC000F368C /* NSArray+NSArray_NoPL.m in Sources */,
-				A2E831CF167CF4EC000F368C /* NSDictionary+NSDictionary_NoPL.m in Sources */,
 				A2E831D0167CF4EC000F368C /* PlistScriptData.m in Sources */,
 				A2E831D1167CF4EC000F368C /* ScriptData.m in Sources */,
 				A2E831D2167CF4EC000F368C /* XMLScriptData.m in Sources */,
 				A2E831D3167CF4EC000F368C /* ScriptController.m in Sources */,
+				9BBBA0A71683E9C1006E1FA0 /* NSArray+NoPL.m in Sources */,
+				9BBBA0A81683E9C1006E1FA0 /* NSDictionary+NoPL.m in Sources */,
+				9BBBA0AF1683EE19006E1FA0 /* NSXMLNode+NoPL.m in Sources */,
+				9BBBA0B2168407EE006E1FA0 /* NSXMLElement+NoPL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 Brad Bambara. All rights reserved.
 //
 
-#import "NSDictionary+NSDictionary_NoPL.h"
+#import "NSDictionary+NoPL.h"
 #import "DataManager.h"
 
-@implementation NSDictionary (NSDictionary_NoPL)
+@implementation NSDictionary (NoPL)
 
 -(NoPL_FunctionValue)callFunction:(void*)calledOnObject functionName:(NSString*)name args:(const NoPL_FunctionValue*)args argCount:(unsigned int)count
 {

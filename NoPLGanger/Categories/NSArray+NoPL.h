@@ -1,5 +1,5 @@
 //
-//  NSDictionary+NSDictionary_NoPL.h
+//  NSArray+NSArray_NoPL.h
 //  NoPLGanger
 //
 //  Created by Brad Bambara on 10/18/12.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "NoPLRuntime.h"
 
-@interface NSDictionary (NSDictionary_NoPL)
+@interface NSArray (NoPL)
 
 -(NoPL_FunctionValue)callFunction:(void*)calledOnObject functionName:(NSString*)name args:(const NoPL_FunctionValue*)args argCount:(unsigned int)count;
 -(NoPL_FunctionValue)getSubscript:(void*)calledOnObject index:(NoPL_FunctionValue)index;
