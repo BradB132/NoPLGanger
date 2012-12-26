@@ -9,9 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "NoPLRuntime.h"
 
-#define kNoPL_ConsoleOutputNotification @"NoPLConsoleOutput"
-#define kNoPL_ConsoleOutputKey @"NoPLConsoleOutputKey"
-
 @protocol DataContainer <NSObject>
 
 -(NSString*)path;

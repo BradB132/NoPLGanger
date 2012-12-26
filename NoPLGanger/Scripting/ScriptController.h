@@ -16,7 +16,7 @@ typedef enum
 	DebuggerState_Paused,
 }DebuggerState;
 
-@interface ScriptController : NSObject <NSTextViewDelegate>
+@interface ScriptController : NSObject <NSTextViewDelegate, NSTextFieldDelegate>
 {
 	IBOutlet NSTextView* scriptView;
 	IBOutlet NSTextView* consoleView;
@@ -39,5 +39,7 @@ typedef enum
 	int prevExecutionLine;
 	NSMutableArray* breakpoints;
 	NoPLScriptData* scriptVarData;
+	NSMutableArray* commandHistory;
+	NSUInteger commandHistoryIndex;
 }
 @end

@@ -11,6 +11,7 @@
 		9BBBA0A81683E9C1006E1FA0 /* NSDictionary+NoPL.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA0A61683E9C1006E1FA0 /* NSDictionary+NoPL.m */; };
 		9BBBA0AF1683EE19006E1FA0 /* NSXMLNode+NoPL.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA0AE1683EE19006E1FA0 /* NSXMLNode+NoPL.m */; };
 		9BBBA0B2168407EE006E1FA0 /* NSXMLElement+NoPL.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA0B1168407EE006E1FA0 /* NSXMLElement+NoPL.m */; };
+		9BD6A420168650FD00DFA640 /* NoPLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6A41F168650FD00DFA640 /* NoPLTextField.m */; };
 		A2C1F8DD167D0E0A0040E027 /* EditorColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2C1F8DC167D0E0A0040E027 /* EditorColors.plist */; };
 		A2DE04C2167CF72100296706 /* NoPL.icns in Resources */ = {isa = PBXBuildFile; fileRef = A2DE04C1167CF72100296706 /* NoPL.icns */; };
 		A2DE04C4167CF77100296706 /* libNoPLc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2DE04C3167CF77100296706 /* libNoPLc.a */; };
@@ -41,6 +42,8 @@
 		9BBBA0AE1683EE19006E1FA0 /* NSXMLNode+NoPL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSXMLNode+NoPL.m"; sourceTree = "<group>"; };
 		9BBBA0B0168407EE006E1FA0 /* NSXMLElement+NoPL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSXMLElement+NoPL.h"; sourceTree = "<group>"; };
 		9BBBA0B1168407EE006E1FA0 /* NSXMLElement+NoPL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSXMLElement+NoPL.m"; sourceTree = "<group>"; };
+		9BD6A41E168650FD00DFA640 /* NoPLTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoPLTextField.h; sourceTree = "<group>"; };
+		9BD6A41F168650FD00DFA640 /* NoPLTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoPLTextField.m; sourceTree = "<group>"; };
 		A2C1F8DC167D0E0A0040E027 /* EditorColors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EditorColors.plist; sourceTree = "<group>"; };
 		A2DE04C1167CF72100296706 /* NoPL.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = NoPL.icns; sourceTree = "<group>"; };
 		A2DE04C3167CF77100296706 /* libNoPLc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNoPLc.a; path = NoPL_repo/CompiledLibs/compiler/libNoPLc.a; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 			children = (
 				A2E831C7167CF4EC000F368C /* ScriptController.h */,
 				A2E831C8167CF4EC000F368C /* ScriptController.m */,
+				9BD6A41E168650FD00DFA640 /* NoPLTextField.h */,
+				9BD6A41F168650FD00DFA640 /* NoPLTextField.m */,
 			);
 			path = Scripting;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 				9BBBA0A81683E9C1006E1FA0 /* NSDictionary+NoPL.m in Sources */,
 				9BBBA0AF1683EE19006E1FA0 /* NSXMLNode+NoPL.m in Sources */,
 				9BBBA0B2168407EE006E1FA0 /* NSXMLElement+NoPL.m in Sources */,
+				9BD6A420168650FD00DFA640 /* NoPLTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

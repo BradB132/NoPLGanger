@@ -8,10 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define kFileBroswer_SelectedScript @"FileBrowserControllerSelectedScript"
-#define kFileBroswer_SelectedData @"FileBrowserControllerSelectedData"
-#define kFileBroswer_SelectedPathKey @"path"
-
 @class FileSystemNode;
 
 @interface FileBrowserController : NSObject <NSBrowserDelegate>

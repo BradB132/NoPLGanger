@@ -15,6 +15,7 @@
 #define kScriptController_CompileDelay 0.3
 #define kScriptController_CodeFont @"Menlo"
 #define kScriptController_CodeSize 11
+#define kScriptController_MaxCommandHistory 50
 
 #pragma mark - Enum conversion
 
@@ -136,6 +137,9 @@ NSString* tokenRangeTypeToString(NoPL_TokenRangeType type)
 	debugHandle = NULL;
 	callbacks = [DataManager callbacks];
 	prevExecutionLine = -1;
+	commandHistory = [NSMutableArray array];
+	commandHistoryIndex = 0;
+	[debugInputView becomeFirstResponder];
 	
 	//create a list of colors from plist
 	NSString* dataPath = [[NSBundle mainBundle] pathForResource:@"EditorColors" ofType:@"plist"];
@@ -614,6 +618,21 @@ NSString* tokenRangeTypeToString(NoPL_TokenRangeType type)
 	
 	//run the command
 	[self processDebugCommand:command];
+	
+	//put the command in the history
+	[commandHistory addObject:command];
+	
+	//cap the size of the history at the max
+	while([commandHistory count] > kScriptController_MaxCommandHistory)
+		[commandHistory removeObjectAtIndex:0];
+	
+	//set the history index
+	commandHistoryIndex = [commandHistory count];
+}
+
+-(IBAction)saveSelectedFromMenu:(id)sender
+{
+	[self saveCurrentScript];
 }
 
 -(void)textDidChange:(NSNotification *)notification

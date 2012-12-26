@@ -5,3 +5,13 @@
 #ifdef __OBJC__
 	#import <Cocoa/Cocoa.h>
 #endif
+
+#define kNoPL_ConsoleOutputNotification @"NoPLConsoleOutput"
+#define kNoPL_ConsoleOutputKey @"NoPLConsoleOutputKey"
+
+#define kFileBroswer_SelectedScript @"FileBrowserControllerSelectedScript"
+#define kFileBroswer_SelectedData @"FileBrowserControllerSelectedData"
+#define kFileBroswer_SelectedPathKey @"path"
+
+#define kNoPLTextField_KeyDownNoteName @"NoPLTextField_keyDown"
+#define kNoPLTextField_KeyDownEventKey @"NoPLTextField_event"
