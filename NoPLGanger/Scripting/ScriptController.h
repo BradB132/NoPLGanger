@@ -36,7 +36,7 @@ typedef enum
 	DebuggerState debugState;
 	NoPL_DebugHandle debugHandle;
 	NoPL_Callbacks callbacks;
-	int prevExecutionLine;
+	int scriptExecutionLine;
 	NSMutableArray* breakpoints;
 	NoPLScriptData* scriptVarData;
 	NSMutableArray* commandHistory;

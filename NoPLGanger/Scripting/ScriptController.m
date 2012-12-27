@@ -54,12 +54,19 @@ NSString* tokenRangeTypeToString(NoPL_TokenRangeType type)
 
 -(void)setDebugState:(DebuggerState)newState
 {
+	//bail if this is not a real change
+	if(newState == debugState)
+		return;
+	
 	//disable all buttons
 	[buildRunBtn setEnabled:NO];
 	[buildBtn setEnabled:NO];
 	[continueBtn setEnabled:NO];
 	[stepBtn setEnabled:NO];
 	[stopBtn setEnabled:NO];
+	
+	//we'll want to redo highlighting
+	[self updateScriptHighlights];
 	
 	switch(newState)
 	{
@@ -136,10 +143,10 @@ NSString* tokenRangeTypeToString(NoPL_TokenRangeType type)
 	breakpoints = [NSMutableArray array];
 	debugHandle = NULL;
 	callbacks = [DataManager callbacks];
-	prevExecutionLine = -1;
+	scriptExecutionLine = -1;
 	commandHistory = [NSMutableArray array];
 	commandHistoryIndex = 0;
-	[debugInputView becomeFirstResponder];
+	[debugInputView setDelegate:self];
 	
 	//create a list of colors from plist
 	NSString* dataPath = [[NSBundle mainBundle] pathForResource:@"EditorColors" ofType:@"plist"];
@@ -189,7 +196,7 @@ NSString* tokenRangeTypeToString(NoPL_TokenRangeType type)
 		debugHandle = NULL;
 		
 		//reset current line
-		prevExecutionLine = -1;
+		scriptExecutionLine = -1;
 		
 		//switch state back to normal
 		[self setDebugState:DebuggerState_NotRunning];
@@ -224,9 +231,6 @@ NSString* tokenRangeTypeToString(NoPL_TokenRangeType type)
 	{
 		[self endExecution];
 	}
-	
-	//update highlights on the script view
-	[self updateScriptHighlights];
 }
 
 -(void)processDebugCommand:(NSString*)stringCommand
@@ -241,19 +245,30 @@ NSString* tokenRangeTypeToString(NoPL_TokenRangeType type)
 	{
 		//parse the line argument
 		NSRange spaceRange = [stringCommand rangeOfString:@" "];
-		int lineArg = [[stringCommand substringFromIndex:spaceRange.location+1] intValue];
+		NSString* argString = [stringCommand substringFromIndex:spaceRange.location+1];
 		
-		//check if this line is already in breakpoints list
-		NSNumber* lineNum = [NSNumber numberWithInt:lineArg];
-		if([breakpoints containsObject:lineNum])
+		if([argString isEqualToString:@"c"] ||
+		   [argString isEqualToString:@"clear"])
 		{
-			[breakpoints removeObject:lineNum];
-			[self appendToConsole:[NSString stringWithFormat:@"Breakpoint at line %d was removed.", lineArg]];
+			[breakpoints removeAllObjects];
 		}
 		else
 		{
-			[breakpoints addObject:lineNum];
-			[self appendToConsole:[NSString stringWithFormat:@"Breakpoint was added at line %d.", lineArg]];
+			//this arg should be numeric
+			int lineArg = [argString intValue];
+			
+			//check if this line is already in breakpoints list
+			NSNumber* lineNum = [NSNumber numberWithInt:lineArg];
+			if([breakpoints containsObject:lineNum])
+			{
+				[breakpoints removeObject:lineNum];
+				[self appendToConsole:[NSString stringWithFormat:@"Breakpoint at line %d was removed.", lineArg]];
+			}
+			else
+			{
+				[breakpoints addObject:lineNum];
+				[self appendToConsole:[NSString stringWithFormat:@"Breakpoint was added at line %d.", lineArg]];
+			}
 		}
 		
 		[self updateScriptHighlights];
@@ -299,6 +314,22 @@ NSString* tokenRangeTypeToString(NoPL_TokenRangeType type)
 -(void)clearConsole
 {
 	[[consoleView textStorage] deleteCharactersInRange:NSMakeRange(0, [[consoleView textStorage] length])];
+}
+
+-(void)updateDebugInputToCurrentIndex
+{
+	//use an empty string if out of range
+	NSString* restoredDebugInput = nil;
+	if(commandHistoryIndex >= [commandHistory count])
+		restoredDebugInput = @"";
+	else
+	{
+		//get the string from the history
+		restoredDebugInput = [commandHistory objectAtIndex:commandHistoryIndex];
+	}
+	
+	//update the debug prompt
+	[debugInputView setStringValue:restoredDebugInput];
 }
 
 #pragma mark - Text formatting
@@ -352,12 +383,12 @@ NSString* tokenRangeTypeToString(NoPL_TokenRangeType type)
 	for(NSNumber* num in breakpoints)
 	{
 		int lineNum = [num intValue];
-		if(lineNum != prevExecutionLine)
+		if(lineNum != scriptExecutionLine)
 			[layoutManager setTemporaryAttributes:breakpointAttributes forCharacterRange:[self rangeForLine:lineNum]];
 	}
 	
-	if(prevExecutionLine >= 0)
-		[layoutManager setTemporaryAttributes:currentLineAttributes forCharacterRange:[self rangeForLine:prevExecutionLine]];
+	if(scriptExecutionLine >= 0)
+		[layoutManager setTemporaryAttributes:currentLineAttributes forCharacterRange:[self rangeForLine:scriptExecutionLine]];
 }
 
 -(NSString*)compileScript
@@ -446,6 +477,10 @@ NSString* tokenRangeTypeToString(NoPL_TokenRangeType type)
 		//get the line number that we're executing
 		int lineNum = [[debugArgs objectForKey:@"line"] intValue];
 		
+		//store the last line
+		int prevExecutionLine = scriptExecutionLine;
+		scriptExecutionLine = lineNum;
+		
 		//check if there is a breakpoint on this line
 		for(NSNumber* num in breakpoints)
 		{
@@ -456,9 +491,6 @@ NSString* tokenRangeTypeToString(NoPL_TokenRangeType type)
 				[self setDebugState:DebuggerState_Paused];
 			}
 		}
-		
-		//store the last line
-		prevExecutionLine = lineNum;
 	}
 	
 	//check if the script has a data object (should have one if it's running)
@@ -559,7 +591,7 @@ NSString* tokenRangeTypeToString(NoPL_TokenRangeType type)
 	}
 	
 	//reset script line
-	prevExecutionLine = -1;
+	scriptExecutionLine = -1;
 	
 	//set up the debug handle for debugging the script
 	NSData* compiledData = [NSData dataWithContentsOfFile:outputPath];
@@ -583,21 +615,20 @@ NSString* tokenRangeTypeToString(NoPL_TokenRangeType type)
 
 - (IBAction)stepClicked:(id)sender
 {
-	int stepStartLine = prevExecutionLine;
-	while(debugHandle && stepStartLine == prevExecutionLine)
+	int stepStartLine = scriptExecutionLine;
+	while(debugHandle && stepStartLine == scriptExecutionLine)
 		[self stepScript:NO];
 	
 	//say where the script execution is if it's still not finished
 	if(debugState)
 	{
-		[self appendToConsole:[NSString stringWithFormat:@"Stepped to line %d", prevExecutionLine]];
+		[self appendToConsole:[NSString stringWithFormat:@"Stepped to line %d", scriptExecutionLine]];
 	}
 }
 
 - (IBAction)stopClicked:(id)sender
 {
 	[self endExecution];
-	[self updateScriptHighlights];
 }
 
 - (IBAction)debugCommandEntered:(id)sender
@@ -649,6 +680,34 @@ NSString* tokenRangeTypeToString(NoPL_TokenRangeType type)
 			[recompileTimer invalidate];
 		recompileTimer = [NSTimer scheduledTimerWithTimeInterval:kScriptController_CompileDelay target:self selector:@selector(compileScriptFromTimer) userInfo:NULL repeats:NO];
 	}
+}
+
+-(BOOL)control:(NSControl *)control textView:(NSTextView *)textView doCommandBySelector:(SEL)commandSelector
+{
+	//we only care about the debug input here
+	if(control == debugInputView)
+	{
+		//did the user press the up or down arrow key?
+		if(commandSelector == @selector(moveUp:))
+		{
+			//adjust the debug input to show the previous entry
+			if(commandHistoryIndex > 0)
+			{
+				commandHistoryIndex--;
+				[self updateDebugInputToCurrentIndex];
+			}
+		}
+		else if(commandSelector == @selector(moveDown:))
+		{
+			//adjust the debug input to show the next entry
+			if(commandHistoryIndex < [commandHistory count])
+			{
+				commandHistoryIndex++;
+				[self updateDebugInputToCurrentIndex];
+			}
+		}
+	}
+	return NO;
 }
 
 @end
