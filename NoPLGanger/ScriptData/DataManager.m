@@ -137,6 +137,9 @@ void printString(const char* string, NoPL_StringFeedbackType type)
 		case NoPL_StringFeedbackType_RuntimeError:
 			printedString = [NSString stringWithFormat:@"NoPL Error: %s", string];
 			break;
+		case NoPL_StringFeedbackType_Metadata:
+			printedString = [NSString stringWithFormat:@"NoPL Metadata: %s", string];
+			break;
 	}
 	
 	if(printedString)

@@ -45,6 +45,8 @@ NSString* tokenRangeTypeToString(NoPL_TokenRangeType type)
 			return @"syntax";
 		case NoPL_TokenRangeType_comments:
 			return @"comments";
+		case NoPL_TokenRangeType_metadata:
+			return @"metadata";
 		default:
 			return nil;
 	}
