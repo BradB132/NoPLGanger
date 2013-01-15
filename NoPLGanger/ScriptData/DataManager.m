@@ -49,52 +49,6 @@ NoPL_FunctionValue evalFunction(void* calledOnObject, const char* functionName, 
 			return val;
 	}
 	
-	/* //opening up reflection this much is actually really dangerous
-	if(obj)
-	{
-		SEL checkSel = NSSelectorFromString(stringFunctionName);
-		NSMethodSignature* sig = [[obj class] instanceMethodSignatureForSelector:checkSel];
-		NSInvocation* invocation = [NSInvocation invocationWithMethodSignature:sig];
-		[invocation setSelector:checkSel];
-		[invocation setTarget:obj];
-		[invocation invoke];
-		void* buffer = (void *)malloc([sig methodReturnLength]);
-		[invocation getReturnValue:buffer];
-		const char* returnType = [sig methodReturnType];
-		if(!strcmp(returnType, "@"))
-		{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-			id value = [obj performSelector:checkSel];
-#pragma clang diagnostic pop
-			return [DataManager objectToFunctionValue:value];
-		}
-		else if(!strcmp(returnType, "c"))
-		{
-			//this is a bool
-			NoPL_FunctionValue returnVal;
-			returnVal.booleanValue = *((BOOL*)buffer);
-			returnVal.type = NoPL_DataType_Boolean;
-			return returnVal;
-		}
-		else if(!strcmp(returnType, "f"))
-		{
-			//this is a number
-			NoPL_FunctionValue returnVal;
-			returnVal.numberValue = *((float*)buffer);
-			returnVal.type = NoPL_DataType_Number;
-			return returnVal;
-		}
-		else if(!strcmp(returnType, "Q"))
-		{
-			NSUInteger intVal = *((NSUInteger*)buffer);
-			NoPL_FunctionValue returnVal;
-			returnVal.numberValue = (float)intVal;
-			returnVal.type = NoPL_DataType_Number;
-			return returnVal;
-		}
-	}*/
-	
 	return NoPL_FunctionValue();
 }
 
