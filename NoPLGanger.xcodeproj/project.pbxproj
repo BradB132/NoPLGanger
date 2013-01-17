@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9BB8704F16A77D1F006E7CCD /* libNoPLc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB8704A16A77C9B006E7CCD /* libNoPLc.a */; };
+		9BB8705016A77D22006E7CCD /* libNoPLRuntime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB86FD816A77C6D006E7CCD /* libNoPLRuntime.a */; };
 		9BBBA0A71683E9C1006E1FA0 /* NSArray+NoPL.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA0A41683E9C1006E1FA0 /* NSArray+NoPL.m */; };
 		9BBBA0A81683E9C1006E1FA0 /* NSDictionary+NoPL.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA0A61683E9C1006E1FA0 /* NSDictionary+NoPL.m */; };
 		9BBBA0AF1683EE19006E1FA0 /* NSXMLNode+NoPL.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA0AE1683EE19006E1FA0 /* NSXMLNode+NoPL.m */; };
 		9BBBA0B2168407EE006E1FA0 /* NSXMLElement+NoPL.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBA0B1168407EE006E1FA0 /* NSXMLElement+NoPL.m */; };
 		A2C1F8DD167D0E0A0040E027 /* EditorColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2C1F8DC167D0E0A0040E027 /* EditorColors.plist */; };
 		A2DE04C2167CF72100296706 /* NoPL.icns in Resources */ = {isa = PBXBuildFile; fileRef = A2DE04C1167CF72100296706 /* NoPL.icns */; };
-		A2DE04C4167CF77100296706 /* libNoPLc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2DE04C3167CF77100296706 /* libNoPLc.a */; };
-		A2DE04C6167CF78000296706 /* libNoPLRuntime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2DE04C5167CF78000296706 /* libNoPLRuntime.a */; };
 		A2E831C9167CF4EC000F368C /* DataListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E831B1167CF4EC000F368C /* DataListController.m */; };
 		A2E831CA167CF4EC000F368C /* FileBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E831B4167CF4EC000F368C /* FileBrowserController.m */; };
 		A2E831CB167CF4EC000F368C /* FileSystemNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E831B6167CF4EC000F368C /* FileSystemNode.m */; };
@@ -32,7 +32,54 @@
 		A2FF5BAF167CE5BE00E38B40 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2FF5BAD167CE5BE00E38B40 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9BB86FD516A77C6D006E7CCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BB86FCC16A77C6D006E7CCD /* NoPL_Runtime.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A261C28E15C0E845008AE0C4;
+			remoteInfo = NoPL_Runtime_testing;
+		};
+		9BB86FD716A77C6D006E7CCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BB86FCC16A77C6D006E7CCD /* NoPL_Runtime.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A24F59E6163098DB00FC9181;
+			remoteInfo = NoPLRuntime;
+		};
+		9BB8704716A77C9B006E7CCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BB8703E16A77C9B006E7CCD /* NoPLc.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A2AB8154153B42B60080E9FB;
+			remoteInfo = NoPLc_testing;
+		};
+		9BB8704916A77C9B006E7CCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BB8703E16A77C9B006E7CCD /* NoPLc.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A27FA7FC1632464700D686E9;
+			remoteInfo = NoPLc;
+		};
+		9BB8704B16A77CDD006E7CCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BB8703E16A77C9B006E7CCD /* NoPLc.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A27FA7FB1632464700D686E9;
+			remoteInfo = NoPLc;
+		};
+		9BB8704D16A77CE0006E7CCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BB86FCC16A77C6D006E7CCD /* NoPL_Runtime.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A24F59E5163098DB00FC9181;
+			remoteInfo = NoPLRuntime;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		9BB86FCC16A77C6D006E7CCD /* NoPL_Runtime.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NoPL_Runtime.xcodeproj; path = NoPL_repo/NoPL_Runtime/NoPL_Runtime.xcodeproj; sourceTree = "<group>"; };
+		9BB8703E16A77C9B006E7CCD /* NoPLc.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NoPLc.xcodeproj; path = NoPL_repo/NoPLc/NoPLc.xcodeproj; sourceTree = "<group>"; };
 		9BBBA0A31683E9C1006E1FA0 /* NSArray+NoPL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NoPL.h"; sourceTree = "<group>"; };
 		9BBBA0A41683E9C1006E1FA0 /* NSArray+NoPL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NoPL.m"; sourceTree = "<group>"; };
 		9BBBA0A51683E9C1006E1FA0 /* NSDictionary+NoPL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NoPL.h"; sourceTree = "<group>"; };
@@ -43,8 +90,6 @@
 		9BBBA0B1168407EE006E1FA0 /* NSXMLElement+NoPL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSXMLElement+NoPL.m"; sourceTree = "<group>"; };
 		A2C1F8DC167D0E0A0040E027 /* EditorColors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EditorColors.plist; sourceTree = "<group>"; };
 		A2DE04C1167CF72100296706 /* NoPL.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = NoPL.icns; sourceTree = "<group>"; };
-		A2DE04C3167CF77100296706 /* libNoPLc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNoPLc.a; path = NoPL_repo/CompiledLibs/compiler/libNoPLc.a; sourceTree = "<group>"; };
-		A2DE04C5167CF78000296706 /* libNoPLRuntime.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNoPLRuntime.a; path = NoPL_repo/CompiledLibs/runtime/libNoPLRuntime.a; sourceTree = "<group>"; };
 		A2E831B0167CF4EC000F368C /* DataListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataListController.h; sourceTree = "<group>"; };
 		A2E831B1167CF4EC000F368C /* DataListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataListController.m; sourceTree = "<group>"; };
 		A2E831B3167CF4EC000F368C /* FileBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileBrowserController.h; sourceTree = "<group>"; };
@@ -83,15 +128,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BB8705016A77D22006E7CCD /* libNoPLRuntime.a in Frameworks */,
+				9BB8704F16A77D1F006E7CCD /* libNoPLc.a in Frameworks */,
 				A2FF5B99167CE5BD00E38B40 /* Cocoa.framework in Frameworks */,
-				A2DE04C4167CF77100296706 /* libNoPLc.a in Frameworks */,
-				A2DE04C6167CF78000296706 /* libNoPLRuntime.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9BB86FCD16A77C6D006E7CCD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BB86FD616A77C6D006E7CCD /* NoPL_Runtime */,
+				9BB86FD816A77C6D006E7CCD /* libNoPLRuntime.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BB8703F16A77C9B006E7CCD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BB8704816A77C9B006E7CCD /* NoPLc */,
+				9BB8704A16A77C9B006E7CCD /* libNoPLc.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		9BBBA0A21683E9C1006E1FA0 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +219,8 @@
 		A2FF5B89167CE5BD00E38B40 = {
 			isa = PBXGroup;
 			children = (
+				9BB86FCC16A77C6D006E7CCD /* NoPL_Runtime.xcodeproj */,
+				9BB8703E16A77C9B006E7CCD /* NoPLc.xcodeproj */,
 				A2DE04C1167CF72100296706 /* NoPL.icns */,
 				A2FF5B9E167CE5BD00E38B40 /* NoPLGanger */,
 				A2FF5B97167CE5BD00E38B40 /* Frameworks */,
@@ -174,8 +239,6 @@
 		A2FF5B97167CE5BD00E38B40 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A2DE04C3167CF77100296706 /* libNoPLc.a */,
-				A2DE04C5167CF78000296706 /* libNoPLRuntime.a */,
 				A2FF5B98167CE5BD00E38B40 /* Cocoa.framework */,
 				A2FF5B9A167CE5BD00E38B40 /* Other Frameworks */,
 			);
@@ -235,6 +298,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				9BB8704E16A77CE0006E7CCD /* PBXTargetDependency */,
+				9BB8704C16A77CDD006E7CCD /* PBXTargetDependency */,
 			);
 			name = NoPLGanger;
 			productName = NoPLGanger;
@@ -260,12 +325,55 @@
 			mainGroup = A2FF5B89167CE5BD00E38B40;
 			productRefGroup = A2FF5B95167CE5BD00E38B40 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9BB86FCD16A77C6D006E7CCD /* Products */;
+					ProjectRef = 9BB86FCC16A77C6D006E7CCD /* NoPL_Runtime.xcodeproj */;
+				},
+				{
+					ProductGroup = 9BB8703F16A77C9B006E7CCD /* Products */;
+					ProjectRef = 9BB8703E16A77C9B006E7CCD /* NoPLc.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A2FF5B93167CE5BD00E38B40 /* NoPLGanger */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9BB86FD616A77C6D006E7CCD /* NoPL_Runtime */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = NoPL_Runtime;
+			path = NoPL_Runtime_testing;
+			remoteRef = 9BB86FD516A77C6D006E7CCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9BB86FD816A77C6D006E7CCD /* libNoPLRuntime.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libNoPLRuntime.a;
+			remoteRef = 9BB86FD716A77C6D006E7CCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9BB8704816A77C9B006E7CCD /* NoPLc */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = NoPLc;
+			path = NoPLc_testing;
+			remoteRef = 9BB8704716A77C9B006E7CCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9BB8704A16A77C9B006E7CCD /* libNoPLc.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libNoPLc.a;
+			remoteRef = 9BB8704916A77C9B006E7CCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A2FF5B92167CE5BD00E38B40 /* Resources */ = {
@@ -306,6 +414,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9BB8704C16A77CDD006E7CCD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NoPLc;
+			targetProxy = 9BB8704B16A77CDD006E7CCD /* PBXContainerItemProxy */;
+		};
+		9BB8704E16A77CE0006E7CCD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NoPLRuntime;
+			targetProxy = 9BB8704D16A77CE0006E7CCD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A2FF5BA1167CE5BD00E38B40 /* InfoPlist.strings */ = {
@@ -360,8 +481,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../CompiledLibs/runtime/include/",
-					"$(SRCROOT)/../CompiledLibs/compiler/include/",
+					"$(SRCROOT)/NoPL_repo/NoPL_Runtime/include",
+					"$(SRCROOT)/NoPL_repo/NoPLc/include",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
@@ -388,8 +509,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../CompiledLibs/runtime/include/",
-					"$(SRCROOT)/../CompiledLibs/compiler/include/",
+					"$(SRCROOT)/NoPL_repo/NoPL_Runtime/include",
+					"$(SRCROOT)/NoPL_repo/NoPLc/include",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
@@ -402,16 +523,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NoPLGanger/NoPLGanger-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/NoPL_repo/CompiledLibs/runtime/include/",
-					"$(SRCROOT)/NoPL_repo/CompiledLibs/compiler/include/",
-				);
 				INFOPLIST_FILE = "NoPLGanger/NoPLGanger-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/NoPL_repo/CompiledLibs/runtime\"",
-					"\"$(SRCROOT)/NoPL_repo/CompiledLibs/compiler\"",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -423,16 +535,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NoPLGanger/NoPLGanger-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/NoPL_repo/CompiledLibs/runtime/include/",
-					"$(SRCROOT)/NoPL_repo/CompiledLibs/compiler/include/",
-				);
 				INFOPLIST_FILE = "NoPLGanger/NoPLGanger-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/NoPL_repo/CompiledLibs/runtime\"",
-					"\"$(SRCROOT)/NoPL_repo/CompiledLibs/compiler\"",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
