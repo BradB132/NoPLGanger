@@ -33,10 +33,12 @@
 	NSString* savedRootPath = [[NSUserDefaults standardUserDefaults] stringForKey:kFileBrowser_CurentDirectoryKey];
 	
 	//make sure our path really exists
-	BOOL isDir;
-	BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath:savedRootPath isDirectory:&isDir];
-	if(!(exists && isDir))
+	BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath:savedRootPath];
+	if(!exists)
+	{
 		savedRootPath = kFileBrowser_DefaultRootPath;
+		[[NSUserDefaults standardUserDefaults] setObject:kFileBrowser_DefaultRootPath forKey:kFileBrowser_CurentDirectoryKey];
+	}
 	
 	_rootNode = [[FileSystemNode alloc] initWithURL:[NSURL fileURLWithPath:savedRootPath]];
 	[self updateBacktrack];
