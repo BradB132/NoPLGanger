@@ -52,6 +52,177 @@ NSString* tokenRangeTypeToString(NoPL_TokenRangeType type)
 	}
 }
 
+NSString* noplInstructionToString(NoPL_Instruction instruction)
+{
+	switch(instruction)
+	{
+		case NoPL_BYTE_BOOLEAN_TABLE_SIZE:
+			return @"BOOLEAN_TABLE_SIZE";
+		case NoPL_BYTE_NUMERIC_TABLE_SIZE:
+			return @"NUMERIC_TABLE_SIZE";
+		case NoPL_BYTE_STRING_TABLE_SIZE:
+			return @"STRING_TABLE_SIZE";
+		case NoPL_BYTE_OBJECT_TABLE_SIZE:
+			return @"OBJECT_TABLE_SIZE";
+		case NoPL_BYTE_LITERAL_NUMBER:
+			return @"LITERAL_NUMBER";
+		case NoPL_BYTE_LITERAL_BOOLEAN_TRUE:
+			return @"LITERAL_BOOLEAN_TRUE";
+		case NoPL_BYTE_LITERAL_BOOLEAN_FALSE:
+			return @"LITERAL_BOOLEAN_FALSE";
+		case NoPL_BYTE_LITERAL_STRING:
+			return @"LITERAL_STRING";
+		case NoPL_BYTE_LITERAL_NULL:
+			return @"LITERAL_NULL";
+		case NoPL_BYTE_VARIABLE_NUMBER:
+			return @"VARIABLE_NUMBER";
+		case NoPL_BYTE_VARIABLE_BOOLEAN:
+			return @"VARIABLE_BOOLEAN";
+		case NoPL_BYTE_VARIABLE_STRING:
+			return @"VARIABLE_STRING";
+		case NoPL_BYTE_VARIABLE_OBJECT:
+			return @"VARIABLE_OBJECT";
+		case NoPL_BYTE_NUMERIC_ADD:
+			return @"NUMERIC_ADD";
+		case NoPL_BYTE_NUMERIC_SUBTRACT:
+			return @"NUMERIC_SUBTRACT";
+		case NoPL_BYTE_NUMERIC_DIVIDE:
+			return @"NUMERIC_DIVIDE";
+		case NoPL_BYTE_NUMERIC_MULTIPLY:
+			return @"NUMERIC_MULTIPLY";
+		case NoPL_BYTE_NUMERIC_EXPONENT:
+			return @"NUMERIC_EXPONENT";
+		case NoPL_BYTE_NUMERIC_MODULO:
+			return @"NUMERIC_MODULO";
+		case NoPL_BYTE_NUMERIC_INCREMENT:
+			return @"NUMERIC_INCREMENT";
+		case NoPL_BYTE_NUMERIC_DECREMENT:
+			return @"NUMERIC_DECREMENT";
+		case NoPL_BYTE_NUMERIC_ASSIGN:
+			return @"NUMERIC_ASSIGN";
+		case NoPL_BYTE_NUMERIC_ADD_ASSIGN:
+			return @"NUMERIC_ADD_ASSIGN";
+		case NoPL_BYTE_NUMERIC_SUBTRACT_ASSIGN:
+			return @"NUMERIC_SUBTRACT_ASSIGN";
+		case NoPL_BYTE_NUMERIC_DIVIDE_ASSIGN:
+			return @"NUMERIC_DIVIDE_ASSIGN";
+		case NoPL_BYTE_NUMERIC_MULTIPLY_ASSIGN:
+			return @"NUMERIC_MULTIPLY_ASSIGN";
+		case NoPL_BYTE_NUMERIC_EXPONENT_ASSIGN:
+			return @"NUMERIC_EXPONENT_ASSIGN";
+		case NoPL_BYTE_NUMERIC_MODULO_ASSIGN:
+			return @"NUMERIC_MODULO_ASSIGN";
+		case NoPL_BYTE_NUMERIC_ABS_VALUE:
+			return @"NUMERIC_ABS_VALUE";
+		case NoPL_BYTE_NUMERIC_NEGATION:
+			return @"NUMERIC_NEGATION";
+		case NoPL_BYTE_NUMERIC_LOGICAL_EQUALITY:
+			return @"NUMERIC_LOGICAL_EQUALITY";
+		case NoPL_BYTE_NUMERIC_LOGICAL_INEQUALITY:
+			return @"NUMERIC_LOGICAL_INEQUALITY";
+		case NoPL_BYTE_BOOLEAN_LOGICAL_EQUALITY:
+			return @"BOOLEAN_LOGICAL_EQUALITY";
+		case NoPL_BYTE_BOOLEAN_LOGICAL_INEQUALITY:
+			return @"BOOLEAN_LOGICAL_INEQUALITY";
+		case NoPL_BYTE_BOOLEAN_AND:
+			return @"BOOLEAN_AND";
+		case NoPL_BYTE_BOOLEAN_OR:
+			return @"BOOLEAN_OR";
+		case NoPL_BYTE_BOOLEAN_LESS_THAN:
+			return @"BOOLEAN_LESS_THAN";
+		case NoPL_BYTE_BOOLEAN_LESS_THAN_EQUAL:
+			return @"BOOLEAN_LESS_THAN_EQUAL";
+		case NoPL_BYTE_BOOLEAN_GREATER_THAN:
+			return @"BOOLEAN_GREATER_THAN";
+		case NoPL_BYTE_BOOLEAN_GREATER_THAN_EQUAL:
+			return @"BOOLEAN_GREATER_THAN_EQUAL";
+		case NoPL_BYTE_BOOLEAN_NEGATION:
+			return @"BOOLEAN_NEGATION";
+		case NoPL_BYTE_BOOLEAN_ASSIGN:
+			return @"BOOLEAN_ASSIGN";
+		case NoPL_BYTE_STRING_LOGICAL_EQUALITY:
+			return @"STRING_LOGICAL_EQUALITY";
+		case NoPL_BYTE_STRING_LOGICAL_INEQUALITY:
+			return @"STRING_LOGICAL_INEQUALITY";
+		case NoPL_BYTE_STRING_CONCAT:
+			return @"STRING_CONCAT";
+		case NoPL_BYTE_STRING_ASSIGN:
+			return @"STRING_ASSIGN";
+		case NoPL_BYTE_STRING_CONCAT_ASSIGN:
+			return @"STRING_CONCAT_ASSIGN";
+		case NoPL_BYTE_STRING_PRINT:
+			return @"STRING_PRINT";
+		case NoPL_BYTE_OBJECT_LOGICAL_EQUALITY:
+			return @"OBJECT_LOGICAL_EQUALITY";
+		case NoPL_BYTE_OBJECT_LOGICAL_INEQUALITY:
+			return @"OBJECT_LOGICAL_INEQUALITY";
+		case NoPL_BYTE_OBJECT_ASSIGN:
+			return @"OBJECT_ASSIGN";
+		case NoPL_BYTE_FUNCTION_CALL:
+			return @"FUNCTION_CALL";
+		case NoPL_BYTE_FUNCTION_INDEX:
+			return @"FUNCTION_INDEX";
+		case NoPL_BYTE_ARG_NUMBER:
+			return @"ARG_NUMBER";
+		case NoPL_BYTE_ARG_STRING:
+			return @"ARG_STRING";
+		case NoPL_BYTE_ARG_BOOLEAN:
+			return @"ARG_BOOLEAN";
+		case NoPL_BYTE_ARG_OBJECT:
+			return @"ARG_OBJECT";
+		case NoPL_BYTE_CONDITIONAL:
+			return @"CONDITIONAL";
+		case NoPL_BYTE_SWITCH_CASE_BOOLEAN:
+			return @"SWITCH_CASE_BOOLEAN";
+		case NoPL_BYTE_SWITCH_CASE_NUMBER:
+			return @"SWITCH_CASE_NUMBER";
+		case NoPL_BYTE_SWITCH_CASE_STRING:
+			return @"SWITCH_CASE_STRING";
+		case NoPL_BYTE_BUFFER_MOVE_FORWARD:
+			return @"BUFFER_MOVE_FORWARD";
+		case NoPL_BYTE_BUFFER_MOVE_BACKWARD:
+			return @"BUFFER_MOVE_BACKWARD";
+		case NoPL_BYTE_PROGRAM_EXIT:
+			return @"PROGRAM_EXIT";
+		case NoPL_BYTE_RESOLVE_RESULT_TO_NUMBER:
+			return @"RESOLVE_RESULT_TO_NUMBER";
+		case NoPL_BYTE_RESOLVE_RESULT_TO_BOOLEAN:
+			return @"RESOLVE_RESULT_TO_BOOLEAN";
+		case NoPL_BYTE_RESOLVE_RESULT_TO_STRING:
+			return @"RESOLVE_RESULT_TO_STRING";
+		case NoPL_BYTE_RESOLVE_RESULT_TO_OBJECT:
+			return @"RESOLVE_RESULT_TO_OBJECT";
+		case NoPL_BYTE_CAST_NUMBER_TO_BOOLEAN:
+			return @"CAST_NUMBER_TO_BOOLEAN";
+		case NoPL_BYTE_CAST_NUMBER_TO_STRING:
+			return @"CAST_NUMBER_TO_STRING";
+		case NoPL_BYTE_CAST_BOOLEAN_TO_NUMBER:
+			return @"CAST_BOOLEAN_TO_NUMBER";
+		case NoPL_BYTE_CAST_BOOLEAN_TO_STRING:
+			return @"CAST_BOOLEAN_TO_STRING";
+		case NoPL_BYTE_CAST_STRING_TO_NUMBER:
+			return @"CAST_STRING_TO_NUMBER";
+		case NoPL_BYTE_CAST_STRING_TO_BOOLEAN:
+			return @"CAST_STRING_TO_BOOLEAN";
+		case NoPL_BYTE_CAST_OBJECT_TO_STRING:
+			return @"CAST_OBJECT_TO_STRING";
+		case NoPL_BYTE_METADATA:
+			return @"METADATA";
+		case NoPL_BYTE_DEBUG_LINE:
+			return @"DEBUG_LINE";
+		case NoPL_BYTE_DEBUG_VALUE_NUMBER:
+			return @"DEBUG_VALUE_NUMBER";
+		case NoPL_BYTE_DEBUG_VALUE_BOOLEAN:
+			return @"DEBUG_VALUE_BOOLEAN";
+		case NoPL_BYTE_DEBUG_VALUE_STRING:
+			return @"DEBUG_VALUE_STRING";
+		case NoPL_BYTE_DEBUG_VALUE_OBJECT:
+			return @"DEBUG_VALUE_OBJECT";
+		default:
+			return @"";
+	}
+}
+
 @implementation ScriptController
 
 -(void)setDebugState:(DebuggerState)newState
@@ -666,6 +837,61 @@ NSString* tokenRangeTypeToString(NoPL_TokenRangeType type)
 -(IBAction)saveSelectedFromMenu:(id)sender
 {
 	[self saveCurrentScript];
+}
+
+-(IBAction)outputCompiledSpreadsheet:(id)sender
+{
+	//set up objects for compilation
+	NoPL_CompileContext ctx = newNoPL_CompileContext();
+	NoPL_CompileOptions options = NoPL_CompileOptions();
+	options.createTokenRanges = 1;
+	options.debugSymbols = 1;
+	options.optimizeForRuntime = 0;
+	
+	//compile the script
+	compileContextWithString([[scriptView string] UTF8String], &options, &ctx);
+	
+	//check if the compile succeded
+	NSMutableString* outputBuffer = [NSMutableString stringWithCapacity:1000];
+	if(!ctx.errDescriptions)
+	{
+		//build a csv file with anything that might be important
+		[outputBuffer appendString:@"Byte Index, Operator, uByte, uShort, short, float, bool, UTF8\n"];
+		for(int i = 0; i < ctx.dataLength; i++)
+		{
+			void* scriptData = &(ctx.compiledData[i]);
+			NoPL_Instruction* inst = (NoPL_Instruction*)scriptData;
+			unsigned char* uByte = (unsigned char*)scriptData;
+			unsigned short* uShort = (unsigned short*)scriptData;
+			short* _short = (short*)scriptData;
+			float* _float = (float*)scriptData;
+			NSString* boolStr = (*((int*)scriptData)) ? @"true" : @"false";
+			char charString[2];
+			charString[0] = (*uByte < 128) ? *uByte : '\0';
+			charString[1] = '\0';
+			[outputBuffer appendFormat:@"%d,%@,%hhu,%hu,%hd,%f,%@,%s\n",
+										i,
+										noplInstructionToString(*inst),
+										*uByte,
+										*uShort,
+										*_short,
+										*_float,
+										boolStr,
+										charString];
+		}
+		
+		//save to output file
+		NSString* outputPath = [[currentFilePath stringByDeletingPathExtension] stringByAppendingPathExtension:@"csv"];
+		[outputBuffer writeToFile:outputPath atomically:NO encoding:NSASCIIStringEncoding error:NULL];
+		[self appendToConsole:[NSString stringWithFormat:@"Spreadsheet was saved to '%@'", [outputPath lastPathComponent]]];
+	}
+	else
+	{
+		//show the compile error in the console
+		[self appendToConsole:[NSString stringWithUTF8String:ctx.errDescriptions]];
+	}
+	
+	freeNoPL_CompileContext(&ctx);
 }
 
 -(void)textDidChange:(NSNotification *)notification
