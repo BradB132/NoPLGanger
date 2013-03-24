@@ -571,6 +571,8 @@ NSString* noplInstructionToString(NoPL_Instruction instruction)
 	
 	//get the script from the text view
 	NSString* script = [scriptView string];
+	NSTextStorage* scriptStore = [scriptView textStorage];
+	[scriptStore beginEditing];
 	
 	//set up objects for compilation
 	NoPL_CompileContext ctx = newNoPL_CompileContext();
@@ -626,6 +628,8 @@ NSString* noplInstructionToString(NoPL_Instruction instruction)
 	}
 	
 	freeNoPL_CompileContext(&ctx);
+	
+	[scriptStore endEditing];
 	
 	return outputPath;
 }
