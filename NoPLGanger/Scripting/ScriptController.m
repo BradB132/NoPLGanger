@@ -314,6 +314,7 @@ NSString* noplInstructionToString(NoPL_Instruction instruction)
 	//set up the debugger
 	[self setDebugState:DebuggerState_NotRunning];
 	breakpoints = [NSMutableArray array];
+	errorLines = [NSMutableArray array];
 	debugHandle = NULL;
 	callbacks = [DataManager callbacks];
 	scriptExecutionLine = -1;
@@ -545,7 +546,7 @@ NSString* noplInstructionToString(NoPL_Instruction instruction)
 	if([breakpoints count] > 0)
 	{
 		//set up the attributes for highlighting the background
-		NSDictionary* breakpointAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+		NSDictionary* attributes = [NSDictionary dictionaryWithObjectsAndKeys:
 											  [colors objectForKey:@"breakpoints"], NSBackgroundColorAttributeName,
 											  nil];
 		
@@ -553,8 +554,22 @@ NSString* noplInstructionToString(NoPL_Instruction instruction)
 		for(NSNumber* num in breakpoints)
 		{
 			int lineNum = [num intValue];
-			if(lineNum != scriptExecutionLine)
-				[layoutManager setTemporaryAttributes:breakpointAttributes forCharacterRange:[self rangeForLine:lineNum]];
+			[layoutManager setTemporaryAttributes:attributes forCharacterRange:[self rangeForLine:lineNum]];
+		}
+	}
+	
+	if([errorLines count] > 0)
+	{
+		//set up the attributes for highlighting the background
+		NSDictionary* attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+											  [colors objectForKey:@"errors"], NSBackgroundColorAttributeName,
+											  nil];
+		
+		//highlight each error
+		for(NSNumber* num in errorLines)
+		{
+			int lineNum = [num intValue];
+			[layoutManager setTemporaryAttributes:attributes forCharacterRange:[self rangeForLine:lineNum]];
 		}
 	}
 	
@@ -578,6 +593,9 @@ NSString* noplInstructionToString(NoPL_Instruction instruction)
 {
 	//clear the console before we show anything for this new script
 	[self clearConsole];
+	
+	//reset errors
+	[errorLines removeAllObjects];
 	
 	//get the script from the text view
 	NSString* script = [scriptView string];
@@ -634,11 +652,33 @@ NSString* noplInstructionToString(NoPL_Instruction instruction)
 	else
 	{
 		//show the compile error in the console
-		[self appendToConsole:[NSString stringWithUTF8String:ctx.errDescriptions]];
+		NSString* errString = [NSString stringWithUTF8String:ctx.errDescriptions];
+		[self appendToConsole:errString];
+		
+		//create a list of all lines which have errors on them
+		NSRange searchRange = NSMakeRange(0, [errString length]);
+		NSRange searchResult;
+		while (YES)
+		{
+			searchResult = [errString rangeOfString:@"(line " options:NSLiteralSearch range:searchRange];
+			
+			if(searchResult.location == NSNotFound)
+				break;
+			
+			NSRange parenRange = [errString rangeOfString:@")" options:NSLiteralSearch range:NSMakeRange(searchResult.location+searchResult.length, [errString length] - (searchResult.location+searchResult.length))];
+			
+			NSRange numberRange = NSMakeRange(searchResult.location+searchResult.length, parenRange.location - (searchResult.location+searchResult.length));
+			int errLineNum = [[errString substringWithRange:numberRange] intValue];
+			[errorLines addObject:[NSNumber numberWithInt:errLineNum]];
+			
+			searchRange.location = searchResult.location+1;
+			searchRange.length = [errString length]-searchRange.location;
+		}
 	}
 	
 	freeNoPL_CompileContext(&ctx);
 	
+	[self updateScriptHighlights];
 	[scriptStore endEditing];
 	
 	return outputPath;

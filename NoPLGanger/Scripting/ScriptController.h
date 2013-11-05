@@ -38,6 +38,7 @@ typedef enum
 	NoPL_Callbacks callbacks;
 	int scriptExecutionLine;
 	NSMutableArray* breakpoints;
+	NSMutableArray* errorLines;
 	NoPLScriptData* scriptVarData;
 	NSMutableArray* commandHistory;
 	NSUInteger commandHistoryIndex;
