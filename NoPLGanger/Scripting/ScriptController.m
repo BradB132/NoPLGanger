@@ -540,28 +540,38 @@ NSString* noplInstructionToString(NoPL_Instruction instruction)
 	NSLayoutManager* layoutManager = [scriptView layoutManager];
 	NSRange allTextRange = NSMakeRange(0, [[scriptView string] length]);
 	[layoutManager removeTemporaryAttribute:NSBackgroundColorAttributeName forCharacterRange:allTextRange];
+	[layoutManager removeTemporaryAttribute:NSUnderlineStyleAttributeName forCharacterRange:allTextRange];
 	
-	//set up the attributes for highlighting the background
-	NSDictionary* breakpointAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-										  [colors objectForKey:@"breakpoints"], NSBackgroundColorAttributeName,
-										  nil];
-	//set up the attributes for highlighting the background
-//	NSFont* boldedFont = [NSFont fontWithName:[NSString stringWithFormat:@"%@-Bold", kScriptController_CodeFont] size:kScriptController_CodeSize+5];
-	NSDictionary* currentLineAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-//										  boldedFont, NSFontAttributeName,
-										   [colors objectForKey:@"scriptExecution"], NSBackgroundColorAttributeName,
-										  nil];
-	
-	//highlight each breakpoint
-	for(NSNumber* num in breakpoints)
+	if([breakpoints count] > 0)
 	{
-		int lineNum = [num intValue];
-		if(lineNum != scriptExecutionLine)
-			[layoutManager setTemporaryAttributes:breakpointAttributes forCharacterRange:[self rangeForLine:lineNum]];
+		//set up the attributes for highlighting the background
+		NSDictionary* breakpointAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+											  [colors objectForKey:@"breakpoints"], NSBackgroundColorAttributeName,
+											  nil];
+		
+		//highlight each breakpoint
+		for(NSNumber* num in breakpoints)
+		{
+			int lineNum = [num intValue];
+			if(lineNum != scriptExecutionLine)
+				[layoutManager setTemporaryAttributes:breakpointAttributes forCharacterRange:[self rangeForLine:lineNum]];
+		}
 	}
 	
 	if(scriptExecutionLine >= 0)
+	{
+		//set up the attributes for highlighting the background
+		NSMutableDictionary* currentLineAttributes = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+													  [NSNumber numberWithInt:1], NSUnderlineStyleAttributeName,
+													  nil];
+		
+		if([breakpoints containsObject:[NSNumber numberWithInt:scriptExecutionLine]])
+		{
+			[currentLineAttributes setObject:[colors objectForKey:@"breakpoints"] forKey:NSBackgroundColorAttributeName];
+		}
+		
 		[layoutManager setTemporaryAttributes:currentLineAttributes forCharacterRange:[self rangeForLine:scriptExecutionLine]];
+	}
 }
 
 -(NSString*)compileScript
