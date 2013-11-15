@@ -304,6 +304,7 @@ NSString* noplInstructionToString(NoPL_Instruction instruction)
 -(void)awakeFromNib
 {
 	[scriptView setDelegate:self];
+	[scriptView setAutomaticQuoteSubstitutionEnabled:NO];
 	
 	//set fixed width font for all coding text views
 	NSFont* codeFont = [NSFont fontWithName:kScriptController_CodeFont size:kScriptController_CodeSize];
