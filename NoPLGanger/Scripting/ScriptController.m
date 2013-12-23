@@ -617,13 +617,14 @@ NSString* noplInstructionToString(NoPL_Instruction instruction)
 	NSString* outputPath = NULL;
 	if(!ctx.errDescriptions)
 	{
+		/*
 		//find the path for the output file
 		outputPath = [[currentFilePath stringByDeletingPathExtension] stringByAppendingPathExtension:@"noplb"];
 		
 		//save the script to file
 		NSData* compiledData = [NSData dataWithBytes:ctx.compiledData length:ctx.dataLength];
 		[compiledData writeToFile:outputPath atomically:YES];
-		
+		*/
 		//set text color for background
 		NSColor* bgColor = [colors objectForKey:@"background"];
 		[scriptView setBackgroundColor:bgColor];
