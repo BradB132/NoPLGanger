@@ -472,7 +472,7 @@ NSString* noplInstructionToString(NoPL_Instruction instruction)
 	if(!ctx.errDescriptions)
 	{
 		//run the script
-		nopl_runScript(ctx.compiledData, ctx.dataLength, &callbacks);
+		nopl_runScript(ctx.compiledData, ctx.dataLength, &callbacks, NULL);
 	}
 	else
 	{
@@ -824,7 +824,7 @@ NSString* noplInstructionToString(NoPL_Instruction instruction)
 	
 	//set up the debug handle for debugging the script
 	NSData* compiledData = [NSData dataWithContentsOfFile:outputPath];
-	debugHandle = createNoPL_DebugHandle([compiledData bytes], (unsigned int)[compiledData length], &callbacks);
+	debugHandle = createNoPL_DebugHandle([compiledData bytes], (unsigned int)[compiledData length], &callbacks, NULL);
 	
 	//debug the script
 	[self stepScript:YES];

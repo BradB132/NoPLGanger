@@ -18,7 +18,7 @@ static DataManager* instance;
 
 #pragma mark - NoPL callback functions
 
-NoPL_FunctionValue evalFunction(void* calledOnObject, const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc)
+NoPL_FunctionValue evalFunction(void* calledOnObject, const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc, void* context)
 {
 	NSString* stringFunctionName = [NSString stringWithUTF8String:functionName];
 	
@@ -52,7 +52,7 @@ NoPL_FunctionValue evalFunction(void* calledOnObject, const char* functionName, 
 	return NoPL_FunctionValue();
 }
 
-NoPL_FunctionValue evalSubscript(void* calledOnObject, NoPL_FunctionValue index)
+NoPL_FunctionValue evalSubscript(void* calledOnObject, NoPL_FunctionValue index, void* context)
 {
 	//check if our object responds directly to the function
 	id obj = (__bridge id)calledOnObject;
@@ -78,7 +78,7 @@ NoPL_FunctionValue evalSubscript(void* calledOnObject, NoPL_FunctionValue index)
 	return NoPL_FunctionValue();
 }
 
-void printString(const char* string, NoPL_StringFeedbackType type)
+void printString(const char* string, NoPL_StringFeedbackType type, void* context)
 {
 	NSString* printedString = NULL;
 	switch (type) {
