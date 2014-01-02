@@ -77,7 +77,7 @@
 	}
 	
 	int index = [obj intValue];
-	return queryValue(handle, type, index);
+	return nopl_queryValue(handle, type, index);
 }
 
 -(NoPL_FunctionValue)getSubscript:(void*)calledOnObject index:(NoPL_FunctionValue)index

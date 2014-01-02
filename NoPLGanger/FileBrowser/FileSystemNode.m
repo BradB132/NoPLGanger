@@ -131,7 +131,7 @@ static NSString* usablePathExtensions[] = {@"nopl",@"plist",@"xml"};
 	{
 		if([self isBacktrackNode])
 		{
-			_children = [NSArray array];
+			_children = [NSMutableDictionary dictionary];
 		}
 		else
 		{

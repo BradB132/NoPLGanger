@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NoPLRuntime.h"
+#import "NoPLDebug.h"
 #import "DataManager.h"
 #import "ScriptData.h"
 

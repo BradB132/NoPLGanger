@@ -393,7 +393,7 @@ NSString* noplInstructionToString(NoPL_Instruction instruction)
 	int okToContinue = 1;
 	while(okToContinue && debugState == DebuggerState_Running)
 	{
-		okToContinue = debugStep(debugHandle);
+		okToContinue = nopl_debugStep(debugHandle);
 		if(!continueToEnd)
 		{
 			[self setDebugState:DebuggerState_Paused];
@@ -472,7 +472,7 @@ NSString* noplInstructionToString(NoPL_Instruction instruction)
 	if(!ctx.errDescriptions)
 	{
 		//run the script
-		runScript(ctx.compiledData, ctx.dataLength, &callbacks);
+		nopl_runScript(ctx.compiledData, ctx.dataLength, &callbacks);
 	}
 	else
 	{
